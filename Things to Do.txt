@@ -1,0 +1,11 @@
+EXPORT AS ANIMATION FILE
+CAMERA AUTO SNAP TO FACE WHEN LOADED
+FREE CAMERA SETTINGS
+BREAK LIMIT OF SLIDERS OPTION, or just a simple text telling that the player can go beyond 100 with manual value input
+BEAUTIFY THE SCENE: add background and maybe simple idle animation. Maybe make the layout similar to VRoid Studio
+
+EXPORT TO ITCH.IO
+
+
+Maybe make the importer just one button?
+
