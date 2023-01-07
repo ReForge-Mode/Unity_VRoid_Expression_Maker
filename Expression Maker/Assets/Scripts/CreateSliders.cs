@@ -7,15 +7,12 @@ public class CreateSliders : MonoBehaviour
 {
     public GameObject sliderSetPrefab;
 
-    // A list to store the blend shapes
-    public List<string> blendShapes = new List<string>();
-
-    public void CreateSlider()
+    public void CreateSlider(GameObject humanoid)
     {
-        var humanoid = GameObject.Find("VRM1");
-
         if (humanoid != null)
         {
+            List<string> blendShapes = new List<string>();
+
             // Get the SkinnedMeshRenderer component of the humanoid
             SkinnedMeshRenderer skinnedMeshRenderer = humanoid.GetComponentInChildren<SkinnedMeshRenderer>();
 
@@ -50,5 +47,19 @@ public class CreateSliders : MonoBehaviour
         inputString = inputString.Replace(" R ", " Right");
 
         return inputString;
+    }
+
+    public void ClearSliders()
+    {
+        Transform[] children = gameObject.GetComponentsInChildren<Transform>();
+
+        // Loop through the children and delete them
+        foreach (Transform child in children)
+        {
+            if (child.gameObject != gameObject)
+            {
+                Destroy(child.gameObject);
+            }
+        }
     }
 }
