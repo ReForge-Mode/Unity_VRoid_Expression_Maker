@@ -84,12 +84,42 @@ namespace UniVRM10.VRM10Viewer
 
             return ofn.file;
         }
+
+        public static string SaveDialog(string title, string path, string extension)
+        {
+            OpenFileName ofn = new OpenFileName();
+            ofn.structSize = Marshal.SizeOf(ofn);
+            ofn.filter = Filter("All Files", "*.*", extension, "*" + extension);
+            //ofn.filter = Filter("All Files", "*.*", extension, "*" + extension);
+            ofn.filterIndex = 2;
+            var chars = new char[256];
+            var it = Path.GetFileName(path).GetEnumerator();
+            for (int i = 0; i < chars.Length && it.MoveNext(); ++i)
+            {
+                chars[i] = it.Current;
+            }
+            ofn.file = new string(chars);
+            ofn.maxFile = ofn.file.Length;
+            ofn.fileTitle = new string(new char[64]);
+            ofn.maxFileTitle = ofn.fileTitle.Length;
+            ofn.initialDir = Path.GetDirectoryName(path);
+            ofn.title = title;
+            //ofn.defExt = "PNG";
+            ofn.flags = 0x00000002 | 0x00000004; // OFN_OVERWRITEPROMPT | OFN_HIDEREADONLY;
+            if (!GetSaveFileName(ofn))
+            {
+                return null;
+            }
+
+            return ofn.file;
+        }
         public static string SaveDialog(string title, string path)
         {
             var extension = Path.GetExtension(path);
             OpenFileName ofn = new OpenFileName();
             ofn.structSize = Marshal.SizeOf(ofn);
             ofn.filter = Filter("All Files", "*.*", extension, "*" + extension);
+            //ofn.filter = Filter("All Files", "*.*", extension, "*" + extension);
             ofn.filterIndex = 2;
             var chars = new char[256];
             var it = Path.GetFileName(path).GetEnumerator();

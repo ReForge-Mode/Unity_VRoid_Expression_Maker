@@ -13,10 +13,11 @@ namespace UniVRM10.VRM10Viewer
 
         private CancellationTokenSource _cancellationTokenSource;
 
-        public void OnOpenClicked()
+
+        public bool OnOpenClicked()
         {
             #if UNITY_STANDALONE_WIN
-            var path = VRM10FileDialogForWindows.FileDialog("open VRM", "vrm", "bvh");
+            var path = VRM10FileDialogForWindows.FileDialog("open VRM", "vrm");
             #elif UNITY_EDITOR
             var path = UnityEditor.EditorUtility.OpenFilePanel("Open VRM", "", "vrm");
             #else
@@ -25,17 +26,18 @@ namespace UniVRM10.VRM10Viewer
 
             if (string.IsNullOrEmpty(path))
             {
-                return;
+                return false;
             }
 
             var ext = Path.GetExtension(path).ToLower();
             if (ext != ".vrm")
             {
                 Debug.LogWarning($"{path} is not vrm");
-                return;
+                return false;
             }
 
             LoadModel(path);
+            return true;
         }
         async void LoadModel(string path)
         {

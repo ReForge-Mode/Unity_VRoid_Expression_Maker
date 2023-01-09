@@ -1,8 +1,21 @@
-REPLACE ALL OF EDITOR ONLY FUNCTIONS
-BREAK LIMIT OF SLIDERS OPTION, or just a simple text telling that the player can go beyond 100 with manual value input
-FIND BETTER FONT
-SIMPLE UI TUTORIALS
-SUBMIT THIS ANIMATION INTO GOOGLE FORM?
-EXPORT TO ITCH.IO
+SAVE FILE PROBLEM: In built application no extension and crash in Unity Editor
 
-Maybe one to load expressions?
+REFACTORING
+.FCL IMPORTER EXTENSION FOR UNITY
+
+SIMPLE UI TUTORIALS on HOW TO USE IT
+SUBMIT THIS ANIMATION INTO GOOGLE FORM?
+FEEDBACK FORM IN PROGRAM
+EXPORT TO ITCH.IO, ALSO MOBILE?
+
+
+SAVE AND LOAD v1.1
+- There is now a file explorer. This explorer allow you to browse your expression lists. 
+- Each save file has a name and a screenshot
+- You can also load your expression into the program for editing. 
+
+
+
+
+CREDITS: File Browser
+https://assetstore.unity.com/packages/tools/gui/runtime-file-browser-113006

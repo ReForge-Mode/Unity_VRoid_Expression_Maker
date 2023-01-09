@@ -11,7 +11,8 @@ public class VRMFinder : MonoBehaviour
     public UnityEvent onEventTriggered;
     public SnapCamera snapCamera;
     public SaveAnimation saveAnimation;
-    public CreateSliders createSliders;
+    public SliderCreator sliderCreator;
+    public SliderMinMaxUpdate sliderMinMaxUpdate;
 
     public GameObject vrm1;
 
@@ -39,7 +40,8 @@ public class VRMFinder : MonoBehaviour
                 TriggerEvent();
                 snapCamera.SetCamera(vrm1);
                 saveAnimation.UpdateVRMMesh(vrm1.gameObject);
-                createSliders.CreateSlider(vrm1);
+                sliderCreator.CreateSlider(vrm1);
+                sliderMinMaxUpdate.GetSliderList();
             }
         }
     }
