@@ -1,12 +1,13 @@
-SAVE FILE PROBLEM: In built application no extension and crash in Unity Editor
+Load .FCL and .anim
+Ads for all socials
+Screenshots Character
 
-REFACTORING
-.FCL IMPORTER EXTENSION FOR UNITY
 
-SIMPLE UI TUTORIALS on HOW TO USE IT
 SUBMIT THIS ANIMATION INTO GOOGLE FORM?
-FEEDBACK FORM IN PROGRAM
 EXPORT TO ITCH.IO, ALSO MOBILE?
+
+
+RESIZABLE MENU
 
 
 SAVE AND LOAD v1.1
@@ -14,8 +15,3 @@ SAVE AND LOAD v1.1
 - Each save file has a name and a screenshot
 - You can also load your expression into the program for editing. 
 
-
-
-
-CREDITS: File Browser
-https://assetstore.unity.com/packages/tools/gui/runtime-file-browser-113006

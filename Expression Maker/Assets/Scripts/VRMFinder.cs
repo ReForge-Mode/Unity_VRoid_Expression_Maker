@@ -8,9 +8,9 @@ using static UnityEngine.GraphicsBuffer;
 //It will then inform other scripts through event broadcast
 public class VRMFinder : MonoBehaviour
 {
-    public UnityEvent onEventTriggered;
+    public UnityEvent onVRMFound;
     public SnapCamera snapCamera;
-    public SaveAnimation saveAnimation;
+    public SaveExpression saveExpression;
     public SliderCreator sliderCreator;
     public SliderMinMaxUpdate sliderMinMaxUpdate;
 
@@ -24,7 +24,7 @@ public class VRMFinder : MonoBehaviour
     public void TriggerEvent()
     {
         // Call all functions or variables on the Unity Event list
-        onEventTriggered.Invoke();
+        onVRMFound.Invoke();
     }
 
     public void SearchVRM1()
@@ -39,7 +39,7 @@ public class VRMFinder : MonoBehaviour
                 //Debug.Log("Target Found!");
                 TriggerEvent();
                 snapCamera.SetCamera(vrm1);
-                saveAnimation.UpdateVRMMesh(vrm1.gameObject);
+                saveExpression.UpdateVRMMesh(vrm1.gameObject);
                 sliderCreator.CreateSlider(vrm1);
                 sliderMinMaxUpdate.GetSliderList();
             }
