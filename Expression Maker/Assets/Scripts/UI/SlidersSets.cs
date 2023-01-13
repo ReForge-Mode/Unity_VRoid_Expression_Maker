@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Unity.VisualScripting;
 
 public class SlidersSets : MonoBehaviour
 {
@@ -38,5 +39,11 @@ public class SlidersSets : MonoBehaviour
     public void UpdateBlendshape(float value)
     {
         humanoid.SetBlendShapeWeight(blendshapeIndex, value);
+    }
+
+    public void SetValue(float value)
+    {
+        slider.value = value;
+        OnSliderValueChanged(value);
     }
 }

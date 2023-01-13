@@ -66,4 +66,15 @@ public class SliderCreator : MonoBehaviour
             }
         }
     }
+
+    public void SetSlidersValue(float value)
+    {
+        SlidersSets[] children = gameObject.GetComponentsInChildren<SlidersSets>();
+
+        // Loop through the children and delete them
+        foreach (SlidersSets child in children)
+        {
+            child.SetValue(value);
+        }
+    }
 }

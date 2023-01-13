@@ -8,23 +8,16 @@ using static UnityEngine.GraphicsBuffer;
 using UnityEngine.Events;
 using UniVRM10.VRM10Viewer;
 using Unity.VisualScripting;
+using System.Linq;
 
 public class SaveExpression : MonoBehaviour
 {
     public SkinnedMeshRenderer vrmMesh;
+    public ScreenshotTaker screenshot;
     public string fileName = "Facial Expression";
     public string filePath;
 
     public List<BlendshapeValue> blendshapeList;
-
-    public void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.F12))
-        {
-            GetBlendshapes();
-            SaveToJSON();
-        }
-    }
 
     public bool OnSaveClicked()
     {
@@ -32,15 +25,17 @@ public class SaveExpression : MonoBehaviour
         filePath = null;
         fileName = null;
 
+        
+
 #if UNITY_EDITOR
         filePath = EditorUtility.SaveFilePanel("Save Facial Expression", "", "Facial Expression 1", "fcl");
 #elif UNITY_STANDALONE_WIN
-        filePath = VRM10FileDialogForWindows.SaveDialog("Save Facial Expression", "fcl");
+        filePath = VRM10FileDialogForWindows.SaveDialog("Save Facial Expression", "Facial Expression 1" + ".fcl", "fcl");
 #else
         filePath = Application.dataPath + "/default.fcl";
 #endif
 
-        
+
 
         if (!string.IsNullOrEmpty(filePath))
         {
@@ -49,6 +44,8 @@ public class SaveExpression : MonoBehaviour
 
             GetBlendshapes();
             SaveToJSON();
+
+            screenshot.TakeScreenshot(filePath.Substring(0, filePath.Length - 4));
             return true;
         }
 

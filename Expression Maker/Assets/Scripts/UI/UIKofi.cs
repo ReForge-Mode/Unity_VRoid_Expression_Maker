@@ -5,21 +5,50 @@ using UnityEngine.UI;
 
 public class UIKofi : MonoBehaviour
 {
-    public string link;
-    public Image image;
-    public Image image2;
+    public RectTransform rectTransform;
+    public Image imageBackground;
+    public Image imageText;
     public float fadeDuration = 1.0f;
     public float fadeOutDelay = 6.0f;
-    public bool fadeIn = true;
+    public int index = 0;
 
-    public void StartFadeOut()
+    private bool isRunning = false;
+    private Coroutine coroutine;
+
+    public List<Promotion> promotionList;
+
+    public void StartPromotion()
     {
-        StartCoroutine(FadeOutCoroutine());
+        if(isRunning == true)
+        {
+            StopCoroutine(coroutine);
+        }
+
+        StartCoroutine(FadeInCoroutine());
+        coroutine = StartCoroutine(FadeOutCoroutine());
     }
 
-    public void StartFadeIn()
+    private IEnumerator FadeInCoroutine()
     {
-        StartCoroutine(FadeInCoroutine());
+        isRunning = true;
+
+        //Increment
+        index++;
+        index %= promotionList.Count;
+
+        rectTransform.sizeDelta = new Vector2(promotionList[index].width, rectTransform.sizeDelta.y);
+        imageBackground.color = promotionList[index].colorBg;
+        imageText.sprite = promotionList[index].spriteText;
+
+        // Fade in the image
+        float a = 0;
+        while (a < 1)
+        {
+            a += Time.deltaTime / fadeDuration;
+            imageBackground.color = new Color(imageBackground.color.r, imageBackground.color.g, imageBackground.color.b, a);
+            imageText.color = new Color(imageText.color.r, imageText.color.g, imageText.color.b, a);
+            yield return null;
+        }
     }
 
     private IEnumerator FadeOutCoroutine()
@@ -32,27 +61,25 @@ public class UIKofi : MonoBehaviour
         while (a > 0)
         {
             a -= Time.deltaTime / fadeDuration;
-            image.color = new Color(image.color.r, image.color.g, image.color.b, a);
-            image2.color = new Color(image2.color.r, image2.color.g, image2.color.b, a);
+            imageBackground.color = new Color(imageBackground.color.r, imageBackground.color.g, imageBackground.color.b, a);
+            imageText.color = new Color(imageText.color.r, imageText.color.g, imageText.color.b, a);
             yield return null;
         }
-    }
 
-    private IEnumerator FadeInCoroutine()
-    {
-        // Fade in the image
-        float a = 0;
-        while (a < 1)
-        {
-            a += Time.deltaTime / fadeDuration;
-            image.color = new Color(image.color.r, image.color.g, image.color.b, a);
-            image2.color = new Color(image2.color.r, image2.color.g, image2.color.b, a);
-            yield return null;
-        }
+        isRunning = false;
     }
 
     public void OpenLink()
     {
-        Application.OpenURL(link);
+        Application.OpenURL(promotionList[index].link);
+    }
+
+    [System.Serializable]
+    public struct Promotion
+    {
+        public string link;
+        public Sprite spriteText;
+        public Color colorBg;
+        public float width;
     }
 }

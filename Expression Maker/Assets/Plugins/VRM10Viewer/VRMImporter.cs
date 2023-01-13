@@ -50,7 +50,7 @@ namespace UniVRM10.VRM10Viewer
 
             try
             {
-                Debug.LogFormat("{0}", path);
+                //Debug.LogFormat("{0}", path);
                 var vrm10Instance = await Vrm10.LoadPathAsync(path,
                     canLoadVrm0X: true,
                     showMeshes: false,

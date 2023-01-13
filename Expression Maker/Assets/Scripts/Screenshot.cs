@@ -1,51 +1,45 @@
 using UnityEngine;
+using System.Collections;
 using System.IO;
 
 public class ScreenshotTaker : MonoBehaviour
 {
-    public Camera camera;
-    public Vector2 cropSize;
-    public string screenshotPath;
+    public new Camera camera;
+    public Canvas canvas;
+    public Vector2 center = new Vector2(0, 0);
+    public Vector2 edges = new Vector2(256, 256);
 
-    public void Update()
+    public void TakeScreenshot(string filePath)
     {
-        if(Input.GetKeyDown(KeyCode.F12))
-        {
-            TakeScreenshot();
-        }
+        StartCoroutine(CaptureScreen(filePath));
+
+        //int width = Screen.width - (int)edges.x;
+        //int height = Screen.height - (int)edges.y;
+        //int x = (int)(Screen.width / 2 - edges.x / 2) + (int)center.x;
+        //int y = (int)(Screen.height / 2 - edges.y / 2) + (int)center.y;
+
+        //Texture2D tex = new Texture2D(width, height, TextureFormat.RGB24, false);
+        //tex.ReadPixels(new Rect(x, y, width, height), 0, 0);
+        //tex.Apply();
+
+        //byte[] bytes = tex.EncodeToPNG();
+        //File.WriteAllBytes(filePath + fileName, bytes);
     }
 
-    public void TakeScreenshot()
+    private IEnumerator CaptureScreen(string filePath)
     {
-        // Create a new RenderTexture with the desired dimensions
-        RenderTexture renderTexture = new RenderTexture((int)cropSize.x, (int)cropSize.y, 24);
+        canvas.enabled = false;
 
-        // Set the camera's target texture to the new RenderTexture
-        camera.targetTexture = renderTexture;
+        // Wait for screen rendering to complete
+        yield return new WaitForEndOfFrame();
 
-        // Render the camera's view
-        camera.Render();
+        // Take screenshot
+        ScreenCapture.CaptureScreenshot(filePath + ".png", 4);
 
-        // Create a new Texture2D with the same dimensions as the RenderTexture
-        Texture2D screenshot = new Texture2D((int)cropSize.x, (int)cropSize.y, TextureFormat.RGB24, false);
+        // Wait for screen rendering to complete
+        yield return new WaitForEndOfFrame();
 
-        // Read the pixels from the RenderTexture into the Texture2D
-        screenshot.ReadPixels(new Rect(0, 0, renderTexture.width, renderTexture.height), 0, 0);
-
-        // Apply the texture
-        screenshot.Apply();
-
-        // Encode the texture into a PNG
-        byte[] bytes = screenshot.EncodeToPNG();
-
-        // Write the PNG to a file
-        File.WriteAllBytes(screenshotPath, bytes);
-
-        // Reset the camera's target texture
-        camera.targetTexture = null;
-
-        // Release the RenderTexture
-        RenderTexture.ReleaseTemporary(renderTexture);
-
+        // Show UI after we're done
+        canvas.enabled = true;
     }
 }
