@@ -13,6 +13,8 @@ public class VRMFinder : MonoBehaviour
     public SaveExpression saveExpression;
     public SliderCreator sliderCreator;
     public SliderMinMaxUpdate sliderMinMaxUpdate;
+    public RuntimeAnimatorController anim;
+    private Animator animator;
 
     public GameObject vrm1;
 
@@ -42,6 +44,8 @@ public class VRMFinder : MonoBehaviour
                 saveExpression.UpdateVRMMesh(vrm1.gameObject);
                 sliderCreator.CreateSlider(vrm1);
                 sliderMinMaxUpdate.GetSliderList();
+		animator = vrm1.GetComponent<Animator>();
+		animator.runtimeAnimatorController = anim as RuntimeAnimatorController;
             }
         }
     }
