@@ -12,7 +12,7 @@ Huge credit to these guys who made this possible!
 # Tutorial Video
 Here are some explanations how the application works in a video form:
 
-[![How to Blend Two Expressions Together (Unity VRoid Studio)!](https://github.com/FFaUniHan/Unity_VRoid_Melee_Hits/blob/main/Video.jpg)](https://youtu.be/6MYmzIz7rE4 "How to Create Unity Combat System for VRoid Studio)")
+[![How to Blend Two Expressions Together (Unity VRoid Studio)!](https://github.com/FFaUniHan/Unity_VRoid_Expression_Maker/blob/Save-File-Rework/Video.jpg)](https://youtu.be/6MYmzIz7rE4 "How to Create Unity Combat System for VRoid Studio)")
 
 
 
