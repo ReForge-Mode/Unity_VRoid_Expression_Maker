@@ -74,6 +74,11 @@ public class UIKofi : MonoBehaviour
         Application.OpenURL(promotionList[index].link);
     }
 
+    public void OpenLink(string link)
+    {
+        Application.OpenURL(link);
+    }
+
     [System.Serializable]
     public struct Promotion
     {
