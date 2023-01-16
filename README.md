@@ -1,5 +1,5 @@
 # Unity VRoid Facial Expression Maker
-Load your VRoid model and use the sliders to create your own custom facial expressions outside of #Unity3d! You can then export the current preset as animations that can be used in your game later! 
+Load your VRoid model and use the sliders to create your own custom facial expressions without using Unity! You can then export the current preset as animations that can be used in your game later! 
 
 To download the standalone final product go to this link: https://ko-fi.com/s/27423737f7
 
@@ -12,7 +12,7 @@ Huge credit to these guys who made this possible!
 # Tutorial Video
 Here are some explanations how the application works in a video form:
 
-[![How to Blend Two Expressions Together (Unity VRoid Studio)!](https://github.com/FFaUniHan/Unity_VRoid_Expression_Maker/blob/main/Video.jpg)](https://youtu.be/6MYmzIz7rE4 "How to Create Unity Combat System for VRoid Studio)")
+[![Create Custom VRoid Facial Expressions for FREE](https://github.com/FFaUniHan/Unity_VRoid_Expression_Maker/blob/main/Video.jpg)](https://youtu.be/zbqbPpbA-9c "Create Custom VRoid Facial Expressions for FREE)")
 
 
 
