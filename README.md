@@ -6,13 +6,13 @@ To download the standalone final product go to this link: https://ko-fi.com/s/27
 Huge credit to these guys who made this possible!
 - UniVRM plugin: https://github.com/vrm-c/UniVRM
 
-<img src="https://github.com/FFaUniHan/Unity_VRoid_Expression_Maker/blob/Save-File-Rework/Demo.gif" width=100% height=100%>
+<img src="https://github.com/FFaUniHan/Unity_VRoid_Expression_Maker/blob/main/Demo.gif" width=100% height=100%>
 
 
 # Tutorial Video
 Here are some explanations how the application works in a video form:
 
-[![How to Blend Two Expressions Together (Unity VRoid Studio)!](https://github.com/FFaUniHan/Unity_VRoid_Expression_Maker/blob/Save-File-Rework/Video.jpg)](https://youtu.be/6MYmzIz7rE4 "How to Create Unity Combat System for VRoid Studio)")
+[![How to Blend Two Expressions Together (Unity VRoid Studio)!](https://github.com/FFaUniHan/Unity_VRoid_Expression_Maker/blob/main/Video.jpg)](https://youtu.be/6MYmzIz7rE4 "How to Create Unity Combat System for VRoid Studio)")
 
 
 
