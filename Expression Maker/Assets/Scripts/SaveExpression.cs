@@ -32,7 +32,7 @@ public class SaveExpression : MonoBehaviour
 #elif UNITY_STANDALONE_WIN
         filePath = VRM10FileDialogForWindows.SaveDialog("Save Facial Expression", "Facial Expression 1" + ".fcl", "fcl");
 #else
-        filePath = Application.dataPath + "/default.fcl";
+        filePath = Application.persistentDataPath + "/" + fileName + ".fcl";
 #endif
 
 

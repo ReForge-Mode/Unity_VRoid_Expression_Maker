@@ -42,12 +42,13 @@ public class LoadSliderValues : MonoBehaviour
 
     private string OpenFile()
     {
+	string openFilePath;
         #if UNITY_STANDALONE_WIN
-        string openFilePath = VRM10FileDialogForWindows.FileDialog("Open .fcl file", "fcl");
+        openFilePath = VRM10FileDialogForWindows.FileDialog("Open .fcl file", "fcl");
         #elif UNITY_EDITOR
-        var path = UnityEditor.EditorUtility.OpenFilePanel("Open .fcl file", "", "fcl");
+        openFilePath = UnityEditor.EditorUtility.OpenFilePanel("Open .fcl file", "", "fcl");
         #else
-        var path = Application.dataPath + "/default.fcl";
+        openFilePath = Application.dataPath + "/default.fcl";
         #endif
 
         if (!string.IsNullOrEmpty(openFilePath))
