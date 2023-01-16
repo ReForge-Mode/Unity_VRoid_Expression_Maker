@@ -17,4 +17,4 @@ Here are some explanations how the application works in a video form:
 
 
 # Instructions
-Once you download and extract the zip file or clone the project to your Git application, open it in Unity Hub. This project uses Unity version 20212.1.1f, earlier versions of Unity might not work, and later versions might break some of the scripts. To download a specific version of Unity, go to this website https://unity3d.com/get-unity/download/archive. After you download and install the Unity version, you can add this version of Unity back to Unity Hub and open it.
+Once you download and extract the zip file or clone the project to your Git application, open it in Unity Hub. This project uses Unity version 2022.1.1f, earlier versions of Unity might not work, and later versions might break some of the scripts. To download a specific version of Unity, go to this website https://unity3d.com/get-unity/download/archive. After you download and install the Unity version, you can add this version of Unity back to Unity Hub and open it.
