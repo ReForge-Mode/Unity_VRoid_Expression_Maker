@@ -1,10 +1,9 @@
 
 
-FEATURES:
+UPCOMING FEATURES:
+UNDO/REDO FUNCTION?
 SUBMIT THIS ANIMATION INTO GOOGLE FORM?
-EXPORT TO ITCH.IO, ALSO MOBILE?
-
-
+WEBGL AND MOBILE BUILD?
 RESIZABLE MENU
 RANDOM FACIAL EXPRESSIONS
 
@@ -13,4 +12,3 @@ SAVE AND LOAD v1.1
 - There is now a file explorer. This explorer allow you to browse your expression lists. 
 - Each save file has a name and a screenshot
 - You can also load your expression into the program for editing. 
-
