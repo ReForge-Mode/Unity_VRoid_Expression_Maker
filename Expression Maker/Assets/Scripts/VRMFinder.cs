@@ -44,8 +44,13 @@ public class VRMFinder : MonoBehaviour
                 saveExpression.UpdateVRMMesh(vrm1.gameObject);
                 sliderCreator.CreateSlider(vrm1);
                 sliderMinMaxUpdate.GetSliderList();
-		animator = vrm1.GetComponent<Animator>();
-		animator.runtimeAnimatorController = anim as RuntimeAnimatorController;
+		        animator = vrm1.GetComponent<Animator>();
+		        animator.runtimeAnimatorController = anim as RuntimeAnimatorController;
+
+                //Set the arm position to be not T-posed
+                Transform t = vrm1.transform.Find("Root").Find("J_Bip_C_Hips").Find("J_Bip_C_Spine").Find("J_Bip_C_Chest").Find("J_Bip_C_UpperChest");
+                t.Find("J_Bip_L_Shoulder").GetChild(0).localRotation = Quaternion.Euler(Vector3.forward *  70);
+                t.Find("J_Bip_R_Shoulder").GetChild(0).localRotation = Quaternion.Euler(Vector3.forward * -70);
             }
         }
     }

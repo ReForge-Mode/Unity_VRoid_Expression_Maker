@@ -23,11 +23,6 @@ public class SnapCamera : MonoBehaviour
         }
     }
 
-    private void CalculateCameraOrthographic()
-    {
-        
-    }
-
     public void SetCamera(GameObject vrm1)
     {
         target = FindChildWithName(vrm1.transform, "J_Adj_L_FaceEye");

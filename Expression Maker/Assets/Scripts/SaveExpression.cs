@@ -25,17 +25,21 @@ public class SaveExpression : MonoBehaviour
         filePath = null;
         fileName = null;
 
-        
-
 #if UNITY_EDITOR
         filePath = EditorUtility.SaveFilePanel("Save Facial Expression", "", "Facial Expression 1", "fcl");
 #elif UNITY_STANDALONE_WIN
-        filePath = VRM10FileDialogForWindows.SaveDialog("Save Facial Expression", "Facial Expression 1" + ".fcl", "fcl");
+        filePath = VRM10FileDialogForWindows.SaveDialog("Save Facial Expression", "Facial Expression 1" + ".fcl");
 #else
         filePath = Application.persistentDataPath + "/" + fileName + ".fcl";
 #endif
 
+        //Analyze filePath and add extension if possible
+        if (filePath.Length > 0 && filePath.Substring(filePath.Length - 4, 4) != ".fcl")
+        {
+            filePath += ".fcl";
+        }
 
+        Debug.Log(filePath);
 
         if (!string.IsNullOrEmpty(filePath))
         {

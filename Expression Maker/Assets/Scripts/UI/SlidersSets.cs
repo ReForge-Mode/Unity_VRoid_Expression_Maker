@@ -46,6 +46,11 @@ public class SlidersSets : MonoBehaviour
         humanoid.SetBlendShapeWeight(blendshapeIndex, value);
     }
 
+    public float GetValue()
+    {
+        return slider.value;
+    }
+
     public void SetValue(float value)
     {
         slider.value = value;

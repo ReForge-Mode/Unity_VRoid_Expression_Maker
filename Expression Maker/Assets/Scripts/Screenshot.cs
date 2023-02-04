@@ -12,22 +12,15 @@ public class ScreenshotTaker : MonoBehaviour
     public void TakeScreenshot(string filePath)
     {
         StartCoroutine(CaptureScreen(filePath));
-
-        //int width = Screen.width - (int)edges.x;
-        //int height = Screen.height - (int)edges.y;
-        //int x = (int)(Screen.width / 2 - edges.x / 2) + (int)center.x;
-        //int y = (int)(Screen.height / 2 - edges.y / 2) + (int)center.y;
-
-        //Texture2D tex = new Texture2D(width, height, TextureFormat.RGB24, false);
-        //tex.ReadPixels(new Rect(x, y, width, height), 0, 0);
-        //tex.Apply();
-
-        //byte[] bytes = tex.EncodeToPNG();
-        //File.WriteAllBytes(filePath + fileName, bytes);
     }
 
     private IEnumerator CaptureScreen(string filePath)
     {
+        //Center the camera
+        Vector3 position = camera.transform.position;
+        camera.transform.position = new Vector3(0, position.y, position.z);
+
+        //Hide the canvas
         canvas.enabled = false;
 
         // Wait for screen rendering to complete
@@ -41,5 +34,8 @@ public class ScreenshotTaker : MonoBehaviour
 
         // Show UI after we're done
         canvas.enabled = true;
+
+        //Return camera
+        camera.transform.position = position;
     }
 }
